@@ -1,0 +1,152 @@
+```html id="e0t01r"
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>2026-06 Archive</title>
+
+<style>
+
+body{
+
+    font-family:Arial;
+
+    background:#f5f5f5;
+
+    padding:40px;
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.article{
+
+    background:white;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    border-radius:10px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.article img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+}
+
+.date{
+
+    color:gray;
+
+    font-size:14px;
+}
+
+.tag{
+
+    display:inline-block;
+
+    background:#ddd;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    margin-right:8px;
+}
+
+a{
+
+    text-decoration:none;
+
+    color:black;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>
+2026-06 Archive
+</h1>
+
+<p>
+
+<a href="index.html">
+
+← 返回首页
+
+</a>
+
+</p>
+
+<!-- Article -->
+
+<div class="article">
+
+<img src="images/2026-06/cover.jpg">
+
+<h2>
+
+<a href="posts/2026-06/truth.html">
+
+关于真相与阶级的批判
+
+</a>
+
+</h2>
+
+<p class="date">
+
+2026-06-01
+
+</p>
+
+<p>
+
+关于现代社会结构、
+阶级流动与舆论系统的观察。
+
+</p>
+
+<p>
+
+<span class="tag">
+
+社会
+
+</span>
+
+<span class="tag">
+
+政治
+
+</span>
+
+</p>
+
+</div>
+
+</body>
+
+</html>
+```
