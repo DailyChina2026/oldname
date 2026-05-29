@@ -6,9 +6,215 @@ html
 
 <meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DailyChina 2026</title>
 
-<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* 全局 */
+
+body{
+
+    margin:0;
+
+    font-family:Arial, sans-serif;
+
+    background:#f5f5f5;
+
+    color:#222;
+
+    display:flex;
+}
+
+/* 深色模式 */
+
+body.dark{
+
+    background:#121212;
+
+    color:white;
+}
+
+body.dark .sidebar{
+
+    background:#1e1e1e;
+}
+
+body.dark .article{
+
+    background:#1f1f1f;
+}
+
+body.dark .tag{
+
+    background:#333;
+}
+
+/* 左侧栏 */
+
+.sidebar{
+
+    width:260px;
+
+    background:#ececec;
+
+    padding:20px;
+
+    height:100vh;
+
+    position:fixed;
+
+    overflow:auto;
+}
+
+/* 主内容 */
+
+.main{
+
+    margin-left:300px;
+
+    padding:30px;
+
+    width:100%;
+
+    max-width:900px;
+}
+
+/* 搜索框 */
+
+input{
+
+    width:100%;
+
+    padding:10px;
+
+    margin-top:10px;
+
+    margin-bottom:20px;
+
+    border:none;
+
+    border-radius:8px;
+}
+
+/* 按钮 */
+
+button{
+
+    padding:10px 14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    margin-bottom:20px;
+}
+
+/* 分类 */
+
+.category{
+
+    cursor:pointer;
+
+    margin-bottom:10px;
+}
+
+/* 文章卡片 */
+
+.article{
+
+    background:white;
+
+    padding:20px;
+
+    margin-bottom:30px;
+
+    border-radius:12px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 封面图 */
+
+.article img{
+
+    width:100%;
+
+    border-radius:10px;
+}
+
+/* 标题 */
+
+.article h2{
+
+    margin-top:15px;
+}
+
+/* 日期 */
+
+.date{
+
+    color:gray;
+
+    font-size:14px;
+}
+
+/* 标签 */
+
+.tag{
+
+    display:inline-block;
+
+    background:#ddd;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    margin-right:8px;
+
+    margin-top:10px;
+}
+
+/* 链接 */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+}
+
+/* 手机适配 */
+
+@media(max-width:768px){
+
+    body{
+
+        display:block;
+    }
+
+    .sidebar{
+
+        position:relative;
+
+        width:auto;
+
+        height:auto;
+    }
+
+    .main{
+
+        margin-left:0;
+    }
+}
+
+</style>
 
 </head>
 
@@ -25,9 +231,7 @@ About truth, class and criticism.
 </p>
 
 <button onclick="toggleDarkMode()">
-
 Dark Mode
-
 </button>
 
 <h3>Search</h3>
@@ -41,25 +245,25 @@ onkeyup="searchArticles()"
 
 <h3>Category</h3>
 
-<ul>
-
-<li onclick="filterCategory('全部')">
+<div class="category"
+onclick="filterCategory('全部')">
 全部
-</li>
+</div>
 
-<li onclick="filterCategory('社会')">
+<div class="category"
+onclick="filterCategory('社会')">
 社会
-</li>
+</div>
 
-<li onclick="filterCategory('AI')">
+<div class="category"
+onclick="filterCategory('AI')">
 AI
-</li>
+</div>
 
-<li onclick="filterCategory('经济')">
+<div class="category"
+onclick="filterCategory('经济')">
 经济
-</li>
-
-</ul>
+</div>
 
 <h3>Tags</h3>
 
@@ -142,8 +346,84 @@ data-category="社会"
 
 </div>
 
-<script src="js/main.js"></script>
+<script>
+
+/* Dark Mode */
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle("dark");
+}
+
+/* Search */
+
+function searchArticles(){
+
+    let input =
+
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let articles =
+
+        document
+        .querySelectorAll(".article");
+
+    articles.forEach(article=>{
+
+        let title =
+
+            article
+            .dataset
+            .title
+            .toLowerCase();
+
+        if(title.includes(input)){
+
+            article.style.display="block";
+
+        }else{
+
+            article.style.display="none";
+        }
+    });
+}
+
+/* Category */
+
+function filterCategory(category){
+
+    let articles =
+
+        document
+        .querySelectorAll(".article");
+
+    articles.forEach(article=>{
+
+        if(
+
+            category==="全部"
+
+            ||
+
+            article.dataset.category===category
+
+        ){
+
+            article.style.display="block";
+
+        }else{
+
+            article.style.display="none";
+        }
+    });
+}
+
+</script>
 
 </body>
 
 </html>
+
