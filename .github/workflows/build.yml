@@ -1,0 +1,58 @@
+name: Build Blog
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create posts folder
+        run: mkdir -p posts
+
+      - name: Generate HTML
+        run: |
+
+          for file in posts-md/*.md
+          do
+
+            filename=$(basename "$file" .md)
+
+            title=$(head -n 1 "$file" | sed 's/# //')
+
+            body=$(tail -n +3 "$file")
+
+            echo "<!DOCTYPE html>" > posts/$filename.html
+            echo "<html lang='zh'>" >> posts/$filename.html
+            echo "<head>" >> posts/$filename.html
+            echo "<meta charset='UTF-8'>" >> posts/$filename.html
+            echo "<title>$title</title>" >> posts/$filename.html
+            echo "<link rel='stylesheet' href='../css/style.css'>" >> posts/$filename.html
+            echo "</head>" >> posts/$filename.html
+            echo "<body><div class='container'>" >> posts/$filename.html
+            echo "<a href='../index.html'>← 返回首页</a>" >> posts/$filename.html
+            echo "<h1>$title</h1>" >> posts/$filename.html
+            echo "<hr>" >> posts/$filename.html
+            echo "<p>$body</p>" >> posts/$filename.html
+            echo "</div></body></html>" >> posts/$filename.html
+
+          done
+
+      - name: Commit files
+        run: |
+
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          git add posts
+
+          git commit -m "generate html" || echo "No changes"
+
+          git push
