@@ -1,68 +1,158 @@
+```html
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <title>DailyChina 2026</title>
+<meta charset="UTF-8">
+<title>DailyChina 2026</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    display:flex;
+}
+
+/* 左侧栏 */
+.sidebar{
+    width:260px;
+    background:#f4f4f4;
+    padding:20px;
+    height:100vh;
+    position:fixed;
+    overflow:auto;
+}
+
+/* 右侧内容 */
+.main{
+    margin-left:300px;
+    padding:30px;
+    max-width:900px;
+}
+
+/* 文章列表 */
+.article{
+    margin-bottom:30px;
+    padding-bottom:20px;
+    border-bottom:1px solid #ccc;
+}
+
+.date{
+    color:gray;
+    font-size:14px;
+}
+
+</style>
 </head>
+
 <body>
-    <h1>DailyChina 2026</h1>
-    <p>About of truth, caste and criticism.</p>
-    <hr>
-    <h3>文章归档</h3>
-    <ul>
-        <li><a href="posts/truth.html">关于真相与阶级的批判</a></li>
-    </ul>
-</body>
-</html>
+
+<!-- 左侧简介 -->
+<div class="sidebar">
+
+<h1>DailyChina 2026</h1>
+
+<p>
+About truth, class and criticism.
+</p>
+
+<h3>关于</h3>
+
+<p>
+记录时代变化与社会观察。
+</p>
+
+<h3>归档</h3>
+
+<ul>
+<li>2026-05</li>
+<li>2026-06</li>
+</ul>
+
+</div>
+
+
+<!-- 右侧文章 -->
+<div class="main">
+
 <h2>Latest Articles</h2>
 
-<ul>
+<button onclick="sortNewest()">
+最新优先
+</button>
 
-<li>
-  <a href="posts/my-first-post.html">
-    我的第一篇文章
-  </a>
-</li>
-
-<li>
-  <a href="posts/china-2026.html">
-    China 2026
-  </a>
-</li>
-
-</ul>
-```html
-<h2>2026-05</h2>
-
-<ul>
-
-<li>
-  <a href="posts/2026-05/china-economy.html">
-    China Economy
-  </a>
-</li>
-
-<li>
-  <a href="posts/2026-05/ai-war.html">
-    AI War
-  </a>
-</li>
-
-</ul>
+<button onclick="sortOldest()">
+最旧优先
+</button>
 
 
-<h2>2026-06</h2>
+<div id="articles">
 
-<ul>
+<div class="article" data-date="2026-06-01">
 
-<li>
-  <a href="posts/2026-06/taiwan.html">
-    Taiwan Crisis
-  </a>
-</li>
+<h3>
+<a href="posts/2026-06/article1.html">
+关于真相与阶级的批判
+</a>
+</h3>
 
-</ul>
+<p class="date">
+2026-06-01
+</p>
+
+</div>
+
+
+<div class="article" data-date="2026-05-20">
+
+<h3>
+<a href="posts/2026-05/article2.html">
+中国社会纪事
+</a>
+</h3>
+
+<p class="date">
+2026-05-20
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function sortNewest(){
+
+    let container = document.getElementById("articles");
+
+    let items = Array.from(container.children);
+
+    items.sort((a,b)=>
+        b.dataset.date.localeCompare(a.dataset.date)
+    );
+
+    items.forEach(item=>container.appendChild(item));
+}
+
+
+function sortOldest(){
+
+    let container = document.getElementById("articles");
+
+    let items = Array.from(container.children);
+
+    items.sort((a,b)=>
+        a.dataset.date.localeCompare(b.dataset.date)
+    );
+
+    items.forEach(item=>container.appendChild(item));
+}
+
+</script>
+
+</body>
+</html>
 ```
-
-
-
