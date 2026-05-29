@@ -1,1 +1,75 @@
 js/main.js
+```javascript
+/* Dark Mode */
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle("dark");
+}
+
+/* Search */
+
+function searchArticles(){
+
+    let input =
+
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let articles =
+
+        document
+        .querySelectorAll(".article");
+
+    articles.forEach(article=>{
+
+        let title =
+
+            article
+            .dataset
+            .title
+            .toLowerCase();
+
+        if(title.includes(input)){
+
+            article.style.display="block";
+
+        }else{
+
+            article.style.display="none";
+        }
+    });
+}
+
+/* Category */
+
+function filterCategory(category){
+
+    let articles =
+
+        document
+        .querySelectorAll(".article");
+
+    articles.forEach(article=>{
+
+        if(
+
+            category==="全部"
+
+            ||
+
+            article.dataset.category===category
+
+        ){
+
+            article.style.display="block";
+
+        }else{
+
+            article.style.display="none";
+        }
+    });
+}
+```
