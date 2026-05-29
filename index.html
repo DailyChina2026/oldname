@@ -1,53 +1,21 @@
 ```html
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>DailyChina 2026</title>
 
-<style>
+<link rel="stylesheet" href="css/style.css">
 
-body{
-    margin:0;
-    font-family:Arial;
-    display:flex;
-}
-
-/* 左侧栏 */
-.sidebar{
-    width:260px;
-    background:#f4f4f4;
-    padding:20px;
-    height:100vh;
-    position:fixed;
-    overflow:auto;
-}
-
-/* 右侧内容 */
-.main{
-    margin-left:300px;
-    padding:30px;
-    max-width:900px;
-}
-
-/* 文章列表 */
-.article{
-    margin-bottom:30px;
-    padding-bottom:20px;
-    border-bottom:1px solid #ccc;
-}
-
-.date{
-    color:gray;
-    font-size:14px;
-}
-
-</style>
 </head>
 
 <body>
 
-<!-- 左侧简介 -->
+<!-- Sidebar -->
+
 <div class="sidebar">
 
 <h1>DailyChina 2026</h1>
@@ -56,103 +24,127 @@ body{
 About truth, class and criticism.
 </p>
 
-<h3>关于</h3>
+<button onclick="toggleDarkMode()">
 
-<p>
-记录时代变化与社会观察。
-</p>
+Dark Mode
 
-<h3>归档</h3>
+</button>
+
+<h3>Search</h3>
+
+<input
+type="text"
+id="search"
+placeholder="搜索文章..."
+onkeyup="searchArticles()"
+>
+
+<h3>Category</h3>
 
 <ul>
-<li>2026-05</li>
-<li>2026-06</li>
+
+<li onclick="filterCategory('全部')">
+全部
+</li>
+
+<li onclick="filterCategory('社会')">
+社会
+</li>
+
+<li onclick="filterCategory('AI')">
+AI
+</li>
+
+<li onclick="filterCategory('经济')">
+经济
+</li>
+
 </ul>
+
+<h3>Tags</h3>
+
+<p>
+
+<span class="tag">
+社会
+</span>
+
+<span class="tag">
+AI
+</span>
+
+<span class="tag">
+经济
+</span>
+
+</p>
 
 </div>
 
+<!-- Main -->
 
-<!-- 右侧文章 -->
 <div class="main">
 
 <h2>Latest Articles</h2>
 
-<button onclick="sortNewest()">
-最新优先
-</button>
-
-<button onclick="sortOldest()">
-最旧优先
-</button>
-
-
 <div id="articles">
 
-<div class="article" data-date="2026-06-01">
+<!-- Article -->
 
-<h3>
-<a href="posts/2026-06/article1.html">
+<div class="article"
+
+data-title="关于真相与阶级的批判"
+
+data-category="社会"
+
+>
+
+<img src="images/2026-06/cover.jpg">
+
+<h2>
+
+<a href="posts/2026-06/truth.html">
+
 关于真相与阶级的批判
+
 </a>
-</h3>
+
+</h2>
 
 <p class="date">
+
 2026-06-01
+
+</p>
+
+<p>
+
+关于现代社会结构、
+阶级流动与舆论系统的观察。
+
+</p>
+
+<p>
+
+<span class="tag">
+社会
+</span>
+
+<span class="tag">
+政治
+</span>
+
 </p>
 
 </div>
 
-
-<div class="article" data-date="2026-05-20">
-
-<h3>
-<a href="posts/2026-05/article2.html">
-中国社会纪事
-</a>
-</h3>
-
-<p class="date">
-2026-05-20
-</p>
-
 </div>
 
 </div>
 
-</div>
-
-
-<script>
-
-function sortNewest(){
-
-    let container = document.getElementById("articles");
-
-    let items = Array.from(container.children);
-
-    items.sort((a,b)=>
-        b.dataset.date.localeCompare(a.dataset.date)
-    );
-
-    items.forEach(item=>container.appendChild(item));
-}
-
-
-function sortOldest(){
-
-    let container = document.getElementById("articles");
-
-    let items = Array.from(container.children);
-
-    items.sort((a,b)=>
-        a.dataset.date.localeCompare(b.dataset.date)
-    );
-
-    items.forEach(item=>container.appendChild(item));
-}
-
-</script>
+<script src="js/main.js"></script>
 
 </body>
+
 </html>
 ```
