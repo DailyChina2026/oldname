@@ -1,103 +1,410 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>DailyChina 2026</title>
+
+    <meta name="description" content="关于社会、阶级与公共表达的观察。">
+
     <style>
-        /* 基础布局与深色模式 */
-        body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; color: #222; display: flex; transition: background 0.3s; }
-        body.dark { background: #121212; color: #fff; }
-        
-        .sidebar { width: 260px; background: #ececec; padding: 20px; height: 100vh; position: fixed; overflow: auto; transition: background 0.3s; }
-        body.dark .sidebar { background: #1e1e1e; }
-       
-<div class="topbar">
 
-    <a href="index.html">首页</a>
+        body {
 
-    <a href="archive.html">归档</a>
+            margin: 0;
 
-    <a href="about.html">关于</a>
+            font-family: Arial, sans-serif;
 
-    <a href="https://dailychina2026.github.io/oldname/posts/test.html">
-        GitHub
-    </a>
+            background: #f5f5f5;
 
-</div>
+            color: #222;
 
-        .main { margin-left: 300px; padding: 30px; width: 100%; max-width: 900px; }
-        
-        /* 文章卡片 */
-        .article { background: white; padding: 25px; margin-bottom: 30px; border-radius: 12px; css
-box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
 
-transition:
-    transform 0.25s,
-    box-shadow 0.25s;
+            transition: background 0.3s;
+        }
 
- transition: background 0.3s; }
-        body.dark .article { background: #1f1f1f; }
-        
-        .article h2 { margin-top: 0; }
-        .date { color: #888; font-size: 14px; margin-bottom: 10px; }
-        .tag { display: inline-block; background: #ddd; padding: 5px 10px; border-radius: 20px; font-size: 12px; margin-right: 8px; }
-        body.dark .tag { background: #333; }
-        
-        a { text-decoration: none; color: #007bff; }
-        button { padding: 10px 15px; border: none; border-radius: 8px; cursor: pointer; background: #333; color: white; }
-        
-        @media(max-width:768px) { body { display: block; } .sidebar { position: relative; width: auto; height: auto; } .main { margin-left: 0; } }
+        body.dark {
+
+            background: #121212;
+
+            color: #fff;
+        }
+
+        .sidebar {
+
+            width: 260px;
+
+            background: #ececec;
+
+            padding: 20px;
+
+            height: 100vh;
+
+            position: fixed;
+
+            overflow: auto;
+
+            transition: background 0.3s;
+        }
+
+        body.dark .sidebar {
+
+            background: #1e1e1e;
+        }
+
+        .main {
+
+            margin-left: 300px;
+
+            padding: 30px;
+
+            width: 100%;
+
+            max-width: 900px;
+        }
+
+        .topbar {
+
+            display: flex;
+
+            gap: 20px;
+
+            margin-bottom: 30px;
+
+            font-size: 14px;
+        }
+
+        .topbar a {
+
+            color: #666;
+
+            text-decoration: none;
+        }
+
+        body.dark .topbar a {
+
+            color: #aaa;
+        }
+
+        .article {
+
+            background: white;
+
+            padding: 25px;
+
+            margin-bottom: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s,
+                background 0.3s;
+        }
+
+        .article:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+        }
+
+        body.dark .article {
+
+            background: #1f1f1f;
+        }
+
+        .article h2 {
+
+            margin-top: 0;
+        }
+
+        .article a {
+
+            text-decoration: none;
+
+            color: #007bff;
+        }
+
+        .date {
+
+            color: #888;
+
+            font-size: 14px;
+
+            margin-bottom: 10px;
+        }
+
+        .summary {
+
+            color: #666;
+
+            line-height: 1.7;
+        }
+
+        body.dark .summary {
+
+            color: #bbb;
+        }
+
+        .tag {
+
+            display: inline-block;
+
+            background: #ddd;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            margin-right: 8px;
+        }
+
+        body.dark .tag {
+
+            background: #333;
+        }
+
+        button {
+
+            padding: 10px 15px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            background: #333;
+
+            color: white;
+        }
+
+        footer {
+
+            margin-top: 80px;
+
+            text-align: center;
+
+            color: #888;
+
+            font-size: 13px;
+        }
+
+        @media(max-width:768px) {
+
+            body {
+
+                display: block;
+            }
+
+            .sidebar {
+
+                position: relative;
+
+                width: auto;
+
+                height: auto;
+            }
+
+            .main {
+
+                margin-left: 0;
+            }
+        }
+
     </style>
+
 </head>
+
 <body>
 
     <div class="sidebar">
+
         <h1>DailyChina 2026</h1>
-        <p>About truth, class and criticism.</p>
-        <button onclick="document.body.classList.toggle('dark')">切换深色模式</button>
+
+        <p>
+            About truth, class and criticism.
+        </p>
+
+        <button onclick="document.body.classList.toggle('dark')">
+            切换深色模式
+        </button>
+
         <h3>Search</h3>
-        <input type="text" id="search" placeholder="搜索文章..." onkeyup="searchArticles()" style="width:100%; padding:8px; border-radius:5px; border:1px solid #ccc;">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="搜索文章..."
+            onkeyup="searchArticles()"
+            style="width:100%; padding:8px; border-radius:5px; border:1px solid #ccc;"
+        >
+
         <h3>Category</h3>
-        <div class="category" onclick="filterCategory('全部')" style="cursor:pointer; margin-bottom:10px;">全部</div>
-        <div class="category" onclick="filterCategory('社会')" style="cursor:pointer; margin-bottom:10px;">社会</div>
+
+        <div
+            class="category"
+            onclick="filterCategory('全部')"
+            style="cursor:pointer; margin-bottom:10px;"
+        >
+            全部
+        </div>
+
+        <div
+            class="category"
+            onclick="filterCategory('社会')"
+            style="cursor:pointer; margin-bottom:10px;"
+        >
+            社会
+        </div>
+
     </div>
 
     <div class="main">
+
+        <div class="topbar">
+
+            <a href="index.html">首页</a>
+
+            <a href="archive.html">归档</a>
+
+            <a href="about.html">关于</a>
+
+            <a href="https://github.com/">
+                GitHub
+            </a>
+
+        </div>
+
         <h2>Latest Articles</h2>
 
-        <div class="article" data-title="对某公共人物公共表达的观察笔记" data-category="社会">
-            <h2><a href="posts/my-first-post.html">对某公共人物公共表达的观察笔记</a></h2>
-            <p class="date">2026-05-29</p>
-            <p>关于现代社会结构、阶级流动与舆论系统的观察。</p>
+        <div
+            class="article"
+            data-title="对某公共人物公共表达的观察笔记"
+            data-category="社会"
+        >
+
+            <h2>
+
+                <a href="posts/my-first-post.html">
+
+                    对某公共人物公共表达的观察笔记
+
+                </a>
+
+            </h2>
+
+            <p class="date">
+
+                2026-05-29
+
+            </p>
+
+            <p class="summary">
+
+                关于现代社会结构、阶级流动与舆论系统的观察。
+
+            </p>
+
             <span class="tag">社会</span>
+
             <span class="tag">政治</span>
+
         </div>
+
+        <div
+            class="article"
+            data-title="平静如水"
+            data-category="社会"
+        >
+
+            <h2>
+
+                <a href="posts/test.html">
+
+                    平静如水
+
+                </a>
+
+            </h2>
+
+            <p class="date">
+
+                2026-05-29
+
+            </p>
+
+            <p class="summary">
+
+                今天很安静。像水一样。
+
+            </p>
+
+            <span class="tag">社会</span>
+
+        </div>
+
+        <footer>
+
+            <p>
+
+                © 2026 DailyChina2026
+
+            </p>
+
+        </footer>
+
     </div>
 
     <script>
+
         function searchArticles() {
-            let input = document.getElementById("search").value.toLowerCase();
-            document.querySelectorAll(".article").forEach(article => {
-                let title = article.dataset.title.toLowerCase();
-                article.style.display = title.includes(input) ? "block" : "none";
-            });
+
+            let input =
+                document.getElementById("search")
+                .value
+                .toLowerCase();
+
+            document
+                .querySelectorAll(".article")
+                .forEach(article => {
+
+                    let title =
+                        article.dataset.title.toLowerCase();
+
+                    article.style.display =
+                        title.includes(input)
+                        ? "block"
+                        : "none";
+                });
         }
 
         function filterCategory(cat) {
-            document.querySelectorAll(".article").forEach(article => {
-                article.style.display = (cat === "全部" || article.dataset.category === cat) ? "block" : "none";
-            });
+
+            document
+                .querySelectorAll(".article")
+                .forEach(article => {
+
+                    article.style.display =
+                        (cat === "全部"
+                        || article.dataset.category === cat)
+                        ? "block"
+                        : "none";
+                });
         }
+
     </script>
-    
-<footer>
-
-    <p>
-        © 2026 DailyChina2026
-    </p>
-
-</footer>
 
 </body>
+
 </html>
