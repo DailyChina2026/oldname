@@ -1,1 +1,125 @@
 css/style.css
+```css
+body{
+
+    margin:0;
+
+    font-family:Arial;
+
+    display:flex;
+
+    background:#f5f5f5;
+
+    color:#222;
+}
+
+/* Dark Mode */
+
+body.dark{
+
+    background:#121212;
+
+    color:white;
+}
+
+body.dark .sidebar{
+
+    background:#1e1e1e;
+}
+
+body.dark .article{
+
+    background:#1f1f1f;
+}
+
+/* Sidebar */
+
+.sidebar{
+
+    width:260px;
+
+    background:#ececec;
+
+    padding:20px;
+
+    height:100vh;
+
+    position:fixed;
+
+    overflow:auto;
+}
+
+/* Main */
+
+.main{
+
+    margin-left:300px;
+
+    padding:30px;
+
+    width:100%;
+}
+
+/* Search */
+
+input{
+
+    width:100%;
+
+    padding:10px;
+
+    margin-bottom:20px;
+}
+
+/* Article */
+
+.article{
+
+    background:white;
+
+    padding:20px;
+
+    margin-bottom:30px;
+
+    border-radius:10px;
+}
+
+.article img{
+
+    width:100%;
+
+    border-radius:10px;
+}
+
+/* Tag */
+
+.tag{
+
+    background:#ddd;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    margin-right:8px;
+}
+
+body.dark .tag{
+
+    background:#333;
+}
+
+.date{
+
+    color:gray;
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+}
+```
